@@ -1,0 +1,6 @@
+{
+  "name": "Intern Management System",
+  "description": "An enterprise internship management application to manage interns, instructors, departments, projects, attendance, SMS & notification broadcasts, response tracking, and official multi-role workplace chat channels.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
