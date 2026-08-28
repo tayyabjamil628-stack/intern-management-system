@@ -160,7 +160,6 @@ export const BroadcastResponsesModal: React.FC<BroadcastResponsesModalProps> = (
             <div className="flex items-center gap-2">
               <Button
                 variant="secondary"
-                size="sm"
                 onClick={handleExportCSV}
                 icon={<Download className="w-3.5 h-3.5" />}
               >
@@ -169,7 +168,6 @@ export const BroadcastResponsesModal: React.FC<BroadcastResponsesModalProps> = (
               {pendingCount > 0 && (
                 <Button
                   variant="primary"
-                  size="sm"
                   onClick={handleResendToAllPending}
                   icon={<RefreshCw className="w-3.5 h-3.5" />}
                 >

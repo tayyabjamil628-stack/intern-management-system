@@ -115,7 +115,6 @@ export const MyMessagesPage: React.FC = () => {
                   />
                   <Button
                     variant="primary"
-                    size="sm"
                     onClick={() => handleAcknowledge(b.id)}
                     icon={<CheckCircle2 className="w-3.5 h-3.5" />}
                   >

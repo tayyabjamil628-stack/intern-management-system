@@ -111,7 +111,7 @@ export const AdminDashboardPage: React.FC = () => {
         title="Admin Dashboard"
         description="Overview of intern operations, projects, and attendance."
         breadcrumbs={['Admin', 'Dashboard']}
-        actions={
+        action={
           <div className="flex items-center gap-2">
             <Link to="/admin/communications">
               <Button

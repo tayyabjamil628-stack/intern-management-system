@@ -446,7 +446,7 @@ export const InstructorsListPage: React.FC = () => {
               value={searchTerm}
               onChange={setSearchTerm}
               placeholder="Search name, ID, email, or specialization..."
-              ariaLabel="Search instructors"
+              label="Search instructors"
             />
           </div>
 
@@ -472,13 +472,7 @@ export const InstructorsListPage: React.FC = () => {
         </div>
 
         {/* Filter Summary & Clear Action */}
-        <FilterBar
-          activeFilterCount={
-            (searchTerm ? 1 : 0) + (selectedDepartment ? 1 : 0) + (selectedStatus ? 1 : 0)
-          }
-          onClearFilters={handleClearFilters}
-          resultCount={filteredInstructors.length}
-        />
+        <FilterBar hasActiveFilters={hasActiveFilters} onClearFilters={handleClearFilters} />
       </div>
 
       {/* 3. Instructors Directory List */}
@@ -486,8 +480,13 @@ export const InstructorsListPage: React.FC = () => {
         <EmptyState
           title="No instructors found"
           description="No instructors match the current search or filters."
-          actionLabel={hasActiveFilters ? 'Clear Filters' : undefined}
-          onAction={hasActiveFilters ? handleClearFilters : undefined}
+          action={
+            hasActiveFilters ? (
+              <Button variant="secondary" onClick={handleClearFilters}>
+                Clear Filters
+              </Button>
+            ) : undefined
+          }
         />
       ) : (
         <>
@@ -503,13 +502,13 @@ export const InstructorsListPage: React.FC = () => {
                 key={instructor.id}
                 title={instructor.fullName}
                 subtitle={`${instructor.instructorId} • ${instructor.department}`}
-                badge={<Badge status={instructor.status} />}
+                status={<Badge status={instructor.status} />}
                 fields={[
                   { label: 'Email', value: instructor.email },
                   { label: 'Specialization', value: instructor.specialization },
                   { label: 'Phone', value: instructor.phone },
                 ]}
-                actions={
+                action={
                   <div className="flex items-center gap-2 w-full pt-2 border-t border-slate-100">
                     <Button
                       variant="secondary"

@@ -64,7 +64,7 @@ export const CommunicationsPage: React.FC = () => {
       <PageHeader
         title="Communications & SMS Dispatch"
         description="Send SMS broadcasts, system notifications, and instructions to internees and instructors. Monitor acknowledgments and conduct official workplace chat."
-        actions={
+        action={
           <div className="flex items-center gap-2">
             <Button
               variant="primary"
@@ -206,7 +206,6 @@ export const CommunicationsPage: React.FC = () => {
 
               <Button
                 variant="primary"
-                size="sm"
                 onClick={() => setIsSendModalOpen(true)}
                 icon={<Plus className="w-3.5 h-3.5" />}
               >
@@ -319,7 +318,6 @@ export const CommunicationsPage: React.FC = () => {
                       {/* Response View Button */}
                       <Button
                         variant="secondary"
-                        size="sm"
                         onClick={() => setSelectedBroadcastForResponses(b)}
                         icon={<Eye className="w-3.5 h-3.5 text-blue-600" />}
                         className="whitespace-nowrap"
@@ -339,7 +337,6 @@ export const CommunicationsPage: React.FC = () => {
                 </p>
                 <Button
                   variant="primary"
-                  size="sm"
                   onClick={() => setIsSendModalOpen(true)}
                   icon={<Plus className="w-3.5 h-3.5" />}
                 >
