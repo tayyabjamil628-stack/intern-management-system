@@ -1,11 +1,25 @@
+> **Intern Management System (IMS)**  
+> A full-stack internship operations platform built around a React/TypeScript frontend and a FastAPI/MySQL backend. The project focuses on practical software-engineering concerns: relational data modeling, REST APIs, validation, persistence, maintainable service boundaries, and automated testing.
+>
+> **Public frontend demo:** https://tayyabjamil628-stack.github.io/intern-management-system/  
+> **Source code:** https://github.com/tayyabjamil628-stack/intern-management-system
+>
+> **Important deployment note:** The GitHub Pages URL hosts the frontend only. The live Admin CRUD features require a publicly reachable FastAPI backend because GitHub Pages cannot run the Python API or MySQL database. The local development setup described below remains the full-stack environment.
+
 # Intern Management System (IMS)
 
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue.svg)](https://www.typescriptlang.org/)
+
 [![React](https://img.shields.io/badge/React-19-61dafb.svg)](https://reactjs.org/)
+
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.110+-009688.svg)](https://fastapi.tiangolo.com/)
+
 [![MySQL](https://img.shields.io/badge/MySQL-8.0+-4479A1.svg)](https://www.mysql.com/)
+
 [![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-2.0+-D71F00.svg)](https://www.sqlalchemy.org/)
+
 [![Alembic](https://img.shields.io/badge/Alembic-1.13+-gray.svg)](https://alembic.sqlalchemy.org/)
+
 [![Pytest](https://img.shields.io/badge/Tests-102%20Passed-brightgreen.svg)](https://docs.pytest.org/)
 
 ---
@@ -15,6 +29,7 @@
 The **Intern Management System (IMS)** is an enterprise web application engineered for organizations to administer internship cohorts, departmental placements, project deliverables, and daily attendance tracking within a centralized platform.
 
 ### Primary User Personas & Architectural Scopes
+
 * **Administrators (Admin Portal — `/admin/*`)**: Full operational oversight backed by a **live FastAPI REST API backend and MySQL 8+ relational persistence**. Administrators manage organizational departments, register interns, allocate project deliverables, and track daily cohort attendance.
 * **Interns (Intern Portal — `/intern/*`)**: A personal client-side interface powered by **React Context and demo datasets** (featuring demo persona `Sarah Jenkins`, `INT-2026-001`). Interns view assigned projects, personal attendance records, and profile details.
 
@@ -29,16 +44,17 @@ The **Intern Management System (IMS)** is an enterprise web application engineer
 | **Intern Management** | Complete CRUD operations for intern profiles, status management (`ACTIVE`, `COMPLETED`, `TERMINATED`), and department assignment. | **Live Backend API & MySQL** |
 | **Project Management** | Project allocation, deadline scheduling, milestone status tracking (`NOT_STARTED`, `IN_PROGRESS`, `COMPLETED`), and progress sliders (0–100%). | **Live Backend API & MySQL** |
 | **Attendance Tracker** | Daily attendance logging (`PRESENT`, `ABSENT`, `LEAVE`), daily duplicate prevention, date filtering, and status summaries. | **Live Backend API & MySQL** |
-| **Intern Portal** | Personal dashboard, my assigned projects, attendance history calendar, and profile overview. | *React Context / Mock Data* |
-| **Messages & Chat** | Interactive team communication channels and direct messaging interface. | *React Context / Local State* |
-| **Instructor Directory** | Instructor profiles, departmental classifications, and contact directory. | *React Context / Mock Data* |
-| **Notifications & Alerts** | System notification center, broadcast alerts, and actionable toast dialogs. | *React Context / Local State* |
+| **Intern Portal** | Personal dashboard, my assigned projects, attendance history calendar, and profile overview. | **React Context / Mock Data** |
+| **Messages & Chat** | Interactive team communication channels and direct messaging interface. | **React Context / Local State** |
+| **Instructor Directory** | Instructor profiles, departmental classifications, and contact directory. | **React Context / Mock Data** |
+| **Notifications & Alerts** | System notification center, broadcast alerts, and actionable toast dialogs. | **React Context / Local State** |
 
 ---
 
 ## 3. Technology Stack
 
 ### Frontend Application
+
 * **Framework**: React 19 with TypeScript (Strict Mode)
 * **Build Tool**: Vite 6+
 * **Routing**: React Router DOM v7
@@ -46,6 +62,7 @@ The **Intern Management System (IMS)** is an enterprise web application engineer
 * **Icons & Animation**: Lucide React, Motion (`motion/react`)
 
 ### Backend REST API
+
 * **Runtime**: Python 3.10+
 * **Framework**: FastAPI
 * **Server**: Uvicorn (ASGI)
@@ -54,10 +71,12 @@ The **Intern Management System (IMS)** is an enterprise web application engineer
 * **Database Driver**: PyMySQL
 
 ### Database & Persistence
+
 * **Database Engine**: MySQL 8.0+ (InnoDB engine, `utf8mb4` charset)
 * **Schema Evolution**: Alembic (4 versioned migration revisions)
 
 ### Testing Frameworks
+
 * **Backend**: Pytest & HTTPX (102 automated tests over in-memory SQLite with foreign key enforcement)
 * **Frontend**: TypeScript Compiler (`tsc --noEmit`) & Vite production bundler
 
@@ -69,7 +88,6 @@ The **Intern Management System (IMS)** is an enterprise web application engineer
 ┌─────────────────────────────────────────────────────────────────────────────────┐
 │                           INTERN MANAGEMENT SYSTEM (IMS)                        │
 └─────────────────────────────────────────────────────────────────────────────────┘
-
    ADMIN PORTAL (Live Full-Stack)                     INTERN PORTAL (Demo Context)
  ┌───────────────────────────────────┐               ┌───────────────────────────┐
  │     React 19 Admin Views          │               │   React 19 Intern Views   │
@@ -103,7 +121,7 @@ The **Intern Management System (IMS)** is an enterprise web application engineer
  └───────────────────────────────────────────────────────────────────────────────┘
 ```
 
-*For detailed architectural layers and boundaries, see [docs/architecture.md](./docs/architecture.md).*
+**For detailed architectural layers and boundaries, see [docs/architecture.md](./docs/architecture.md).**
 
 ---
 
@@ -151,6 +169,7 @@ IMS/
 ## 6. Local Installation & Setup
 
 ### Prerequisites
+
 * **Python**: 3.10 or higher
 * **Node.js**: 18.x or higher (with `npm`)
 * **MySQL**: 8.0 or higher running locally on port 3306
@@ -160,33 +179,36 @@ IMS/
 ### Step 1: Backend Setup (FastAPI + MySQL)
 
 1. Open PowerShell / terminal and navigate to the backend directory:
+
    ```powershell
    cd backend/
    ```
 
 2. Create and activate a Python virtual environment:
+
    ```powershell
    # Windows PowerShell:
    python -m venv .venv
    .\.venv\Scripts\Activate.ps1
-
    # Linux / macOS:
    # python3 -m venv .venv
    # source .venv/bin/activate
    ```
-   *(If PowerShell displays a script execution error, run: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser`)*
+
+   **(If PowerShell displays a script execution error, run: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser`)**
 
 3. Upgrade `pip` and install backend dependencies:
+
    ```powershell
    python -m pip install --upgrade pip
    pip install -r requirements.txt
    ```
 
 4. Create the MySQL database and dedicated application user in MySQL:
+
    ```sql
    CREATE DATABASE IF NOT EXISTS intern_management_system 
      CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-
    -- Recommended: create dedicated user
    CREATE USER IF NOT EXISTS 'ims_user'@'localhost' IDENTIFIED BY 'your_password';
    GRANT ALL PRIVILEGES ON intern_management_system.* TO 'ims_user'@'localhost';
@@ -194,10 +216,13 @@ IMS/
    ```
 
 5. Configure backend environment file:
+
    ```powershell
    cp .env.example .env
    ```
+
    Update `.env` with your MySQL credentials:
+
    ```env
    APP_ENV=development
    DEBUG=true
@@ -205,17 +230,21 @@ IMS/
    ALLOWED_ORIGINS=http://localhost:3000,http://localhost:5173
    DATABASE_URL=mysql+pymysql://ims_user:YOUR_PASSWORD@localhost:3306/intern_management_system
    ```
-   *(Note: URL-encode any special characters in passwords, e.g. `@` becomes `%40`)*
+
+   **(Note: URL-encode any special characters in passwords, e.g. `@` becomes `%40`)**
 
 6. Run database migrations to apply the schema:
+
    ```powershell
    python -m alembic upgrade head
    ```
 
 7. Start the FastAPI backend server:
+
    ```powershell
    python -m uvicorn app.main:app --host 127.0.0.1 --port 8000 --reload
    ```
+
    * Health endpoint: `http://127.0.0.1:8000/api/v1/health` $\rightarrow$ `{"status": "ok"}`
    * Swagger documentation: `http://127.0.0.1:8000/docs`
 
@@ -224,28 +253,35 @@ IMS/
 ### Step 2: Frontend Setup (React + TypeScript + Vite)
 
 1. Open a second terminal window and navigate to the frontend directory:
+
    ```bash
    cd frontend/
    ```
 
 2. Install npm dependencies:
+
    ```bash
    npm install
    ```
 
 3. Configure the frontend environment:
+
    ```bash
    cp .env.example .env
    ```
+
    Ensure `VITE_API_BASE_URL` points to the running backend:
+
    ```env
    VITE_API_BASE_URL=http://localhost:8000/api/v1
    ```
 
 4. Start the frontend development server:
+
    ```bash
    npm run dev
    ```
+
    The application will be accessible at: **`http://localhost:3000`** (or `http://localhost:5173`).
 
 ---
@@ -296,8 +332,9 @@ IMS/
 | | `PUT` | `/api/v1/attendance/{id}` | Update attendance status or remarks |
 | | `DELETE` | `/api/v1/attendance/{id}` | Delete attendance log |
 
-*For complete request/response schemas and error models, see [docs/api-design.md](./docs/api-design.md).*  
-*Interactive documentation available at `/docs` (Swagger UI), `/redoc` (ReDoc), and `/openapi.json`.*
+**For complete request/response schemas and error models, see [docs/api-design.md](./docs/api-design.md).**  
+
+**Interactive documentation available at `/docs` (Swagger UI), `/redoc` (ReDoc), and `/openapi.json`.**
 
 ---
 
@@ -314,20 +351,23 @@ IMS/
   3. `c3e2f9a6b4d3_create_projects_table`
   4. `d4f3a8b7c5e4_create_attendance_table` (**Head: `d4f3a8b7c5e4`**)
 
-*For detailed schema definitions and the complete ERD, see [docs/database-design.md](./docs/database-design.md).*
+**For detailed schema definitions and the complete ERD, see [docs/database-design.md](./docs/database-design.md).**
 
 ---
 
 ## 10. Automated Testing & Verification
 
 ### Run Backend Tests (Pytest)
+
 ```powershell
 cd backend/
 python -m pytest -q
 ```
+
 **Latest Verified Result**: `102 passed, 1 skipped in 2.38s` (0 failures).
 
 ### Run Frontend Type-Check & Build
+
 ```powershell
 cd frontend/
 # TypeScript compiler validation:
@@ -335,6 +375,7 @@ tsc --noEmit
 # Production asset compilation:
 npm run build
 ```
+
 **Latest Verified Result**: `0 errors, 0 warnings` (`dist/` generated cleanly).
 
 ---
@@ -357,6 +398,7 @@ To verify the end-to-end full-stack integration during a demonstration:
 ## 12. Security, Known Limitations & Future Roadmap
 
 ### Current Scope & Operational Boundaries (Version 1)
+
 * **Authentication Boundary**: Version 1 operates with open role-based access for local development and demonstration. No backend JWT, session cookies, or OAuth authorization middlewares are implemented.
 * **UI Role Separation**: The top-bar portal switcher toggles between Admin and Intern views for evaluation; this is a presentation layout switch, not a cryptographic security boundary.
 * **Intern Portal Scope**: The Intern Portal interface is backed by client-side React Context and structured mock datasets for demo persona `Sarah Jenkins` (`INT-2026-001`).
@@ -374,7 +416,7 @@ To verify the end-to-end full-stack integration during a demonstration:
 | **P6** | **Event-Driven Notifications** | Automated event-driven alerts for deadlines and attendance changes. | P1–P3 |
 | **P7** | **Production Hardening** | Nginx reverse proxy, TLS/HTTPS, rate limiting, and CI/CD pipelines. | P1–P6 |
 
-*For complete implementation details, task breakdowns, and dependency analysis, see the [Development Plan & Roadmap](./docs/development-plan.md).*
+**For complete implementation details, task breakdowns, and dependency analysis, see the [Development Plan & Roadmap](./docs/development-plan.md).**
 
 ---
 
@@ -402,3 +444,119 @@ To verify the end-to-end full-stack integration during a demonstration:
 * **Architecture**: Decoupled Modern SPA (React + TypeScript + Vite) paired with high-performance REST API (Python + FastAPI + SQLAlchemy + MySQL).
 * **Scope Achieved**: Full-stack CRUD capabilities across 4 core administrative entities (Departments, Interns, Projects, Attendance) backed by MySQL relational persistence, Alembic migrations, and comprehensive automated test suites.
 * **Submission State**: Fully verified, documented, and ready for evaluation.
+
+---
+
+## 15. Public Demo & Deployment Notes
+
+The repository includes a GitHub Pages deployment for the frontend:
+
+**https://tayyabjamil628-stack.github.io/intern-management-system/**
+
+The deployment uses the `frontend/` application and GitHub Actions. The Vite configuration is prepared for the repository subpath `/intern-management-system/`, and the SPA includes a GitHub Pages fallback so client-side routes can be refreshed directly.
+
+### What the public demo represents
+
+The GitHub Pages deployment demonstrates the React application and its UI/navigation structure.
+
+The full-stack Admin workflow still depends on a reachable backend:
+
+```text
+Public Browser
+      ↓
+GitHub Pages
+      ↓
+React / TypeScript Frontend
+      ↓
+VITE_API_BASE_URL
+      ↓
+Public FastAPI Backend
+      ↓
+MySQL
+```
+
+At the moment, the backend is configured for local development, typically at:
+
+```text
+http://127.0.0.1:8000/api/v1
+```
+
+A public visitor's browser cannot use another developer's `localhost` as the API server. To make the Admin portal fully functional for external visitors, the FastAPI backend and MySQL database would need to be deployed to an internet-reachable environment and the frontend would need to be built with the corresponding `VITE_API_BASE_URL`.
+
+This distinction is intentional and documented so the public demo does not imply that the local MySQL/FastAPI environment is publicly hosted.
+
+---
+
+## 16. Screenshots & Project Walkthrough
+
+The repository also contains a `Screenshots/` directory with captured Admin and Intern Portal views for presentation and project evaluation.
+
+Recommended presentation flow:
+
+```text
+Admin Dashboard
+      ↓
+Departments
+      ↓
+Interns
+      ↓
+Projects
+      ↓
+Attendance
+      ↓
+Intern Portal
+```
+
+The screenshots complement the live frontend demo and the technical documentation in `docs/`.
+
+---
+
+## 17. Repository Presentation
+
+For a reviewer, the repository is best understood in four layers:
+
+```text
+1. Product
+   Intern Management System UI and workflows
+2. Frontend
+   React 19 + TypeScript + Vite + Tailwind CSS
+3. Backend
+   FastAPI + Pydantic + SQLAlchemy + Alembic
+4. Persistence & Quality
+   MySQL + relational constraints + Pytest + automated verification
+```
+
+The README intentionally documents both the implemented Version 1 scope and the current architectural boundaries. Features described as future roadmap items are not represented as completed backend functionality.
+
+---
+
+## 18. Portfolio / Academic Positioning
+
+For demonstrations, the strongest engineering story is the complete Admin workflow:
+
+```text
+Department
+    ↓
+Intern
+    ↓
+Project
+    ↓
+Attendance
+    ↓
+Validation & Constraints
+    ↓
+Persistence in MySQL
+```
+
+This highlights the relationship between the UI, REST API, service/repository layers, relational database, and automated tests rather than presenting the project as only a frontend application.
+
+---
+
+## 19. Current Public Links
+
+| Resource | Link |
+| :--- | :--- |
+| GitHub Repository | https://github.com/tayyabjamil628-stack/intern-management-system |
+| GitHub Pages Frontend | https://tayyabjamil628-stack.github.io/intern-management-system/ |
+
+> **Presentation note:** The GitHub Pages link should be described as the **frontend demo** unless a public FastAPI backend is deployed. The GitHub repository remains the authoritative source for the complete full-stack implementation.
